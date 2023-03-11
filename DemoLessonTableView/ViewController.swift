@@ -33,25 +33,26 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        switch indexPath.row {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeHeaderTableViewCell", for: indexPath) as! HomeHeaderTableViewCell
             
             return cell
-        } else if indexPath.row == 1 {
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeBannerTableViewCell", for: indexPath) as! HomeBannerTableViewCell
             
             return cell
-        } else if indexPath.row == 2 {
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeDishesTableViewCell", for: indexPath) as! HomeDishesTableViewCell
-
-            return cell
-        } else if indexPath.row == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCategoryTableViewCell") as! HomeCategoryTableViewCell
             
             return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCategoryTableViewCell", for: indexPath) as! HomeCategoryTableViewCell
+            
+            return cell
+        default:
+            return UITableViewCell()
         }
-        
-        return UITableViewCell()
         
     }
     
